@@ -1,0 +1,1285 @@
+paths:
+  /Photos:
+    get:
+      tags:
+        - Photo
+      operationId: Photo.getContainers
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/x-any'
+      deprecated: false
+    post:
+      tags:
+        - Photo
+      operationId: Photo.createContainer
+      parameters:
+        - name: options
+          in: body
+          required: false
+          schema:
+            type: object
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+  '/Photos/{container}':
+    get:
+      tags:
+        - Photo
+      operationId: Photo.getContainer
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+  '/Photos/{container}/files':
+    get:
+      tags:
+        - Photo
+      operationId: Photo.getFiles
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/x-any'
+      deprecated: false
+  '/Photos/{container}/files/{file}':
+    get:
+      tags:
+        - Photo
+      operationId: Photo.getFile
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+        - name: file
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+  '/Photos/{container}/upload':
+    post:
+      tags:
+        - Photo
+      operationId: Photo.upload
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              result:
+                type: object
+      deprecated: false
+  '/Photos/{container}/download/{file}':
+    get:
+      tags:
+        - Photo
+      operationId: Photo.download
+      parameters:
+        - name: container
+          in: path
+          required: true
+          type: string
+        - name: file
+          in: path
+          required: true
+          type: string
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Posts/{id}/comments/{fk}':
+    get:
+      tags:
+        - Post
+      summary: Find a related item by id for comments.
+      operationId: Post.prototype.__findById__comments
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for comments
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+    delete:
+      tags:
+        - Post
+      summary: Delete a related item by id for comments.
+      operationId: Post.prototype.__destroyById__comments
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for comments
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    put:
+      tags:
+        - Post
+      summary: Update a related item by id for comments.
+      operationId: Post.prototype.__updateById__comments
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for comments
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Comment'
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+  '/Posts/{id}/comments/rel/{fk}':
+    put:
+      tags:
+        - Post
+      summary: Add a related item by id for comments.
+      operationId: Post.prototype.__link__comments
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for comments
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/PostComment'
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/PostComment'
+      deprecated: false
+    delete:
+      tags:
+        - Post
+      summary: Remove the comments relation to an item by id.
+      operationId: Post.prototype.__unlink__comments
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for comments
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+    head:
+      tags:
+        - Post
+      summary: Check the existence of comments relation to an item by id.
+      operationId: Post.prototype.__exists__comments
+      parameters:
+        - name: fk
+          in: path
+          description: Foreign key for comments
+          required: true
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: boolean
+      deprecated: false
+  '/Posts/{id}/comments':
+    get:
+      tags:
+        - Post
+      summary: Queries comments of Post.
+      operationId: Post.prototype.__get__comments
+      parameters:
+        - name: filter
+          in: query
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Comment'
+      deprecated: false
+    post:
+      tags:
+        - Post
+      summary: Creates a new instance in comments of this model.
+      operationId: Post.prototype.__create__comments
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Comment'
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+    delete:
+      tags:
+        - Post
+      summary: Deletes all comments of this model.
+      operationId: Post.prototype.__delete__comments
+      parameters:
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  '/Posts/{id}/comments/count':
+    get:
+      tags:
+        - Post
+      summary: Counts comments of Post.
+      operationId: Post.prototype.__count__comments
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /Posts:
+    post:
+      tags:
+        - Post
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Post.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    put:
+      tags:
+        - Post
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Post.upsert__put_Posts
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    patch:
+      tags:
+        - Post
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Post.upsert__patch_Posts
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    get:
+      tags:
+        - Post
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Post.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Post'
+      deprecated: false
+  /Posts/replaceOrCreate:
+    post:
+      tags:
+        - Post
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: Post.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+  /Posts/upsertWithWhere:
+    post:
+      tags:
+        - Post
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: Post.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+  '/Posts/{id}/exists':
+    get:
+      tags:
+        - Post
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Post.exists__get_Posts_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Posts/{id}':
+    head:
+      tags:
+        - Post
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Post.exists__head_Posts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Post
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Post.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    delete:
+      tags:
+        - Post
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: Post.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Post
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'Post.prototype.updateAttributes__put_Posts_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Post'
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    patch:
+      tags:
+        - Post
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'Post.prototype.updateAttributes__patch_Posts_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Post'
+        - name: id
+          in: path
+          description: Post id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+  '/Posts/{id}/replace':
+    post:
+      tags:
+        - Post
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: Post.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+  /Posts/findOne:
+    get:
+      tags:
+        - Post
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Post.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+  /Posts/update:
+    post:
+      tags:
+        - Post
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: Post.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Post'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /Posts/count:
+    get:
+      tags:
+        - Post
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Post.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  '/Comments/{id}/posts':
+    get:
+      tags:
+        - Comment
+      summary: Fetches hasOne relation posts.
+      operationId: Comment.prototype.__get__posts
+      parameters:
+        - name: refresh
+          in: query
+          required: false
+          type: boolean
+        - name: id
+          in: path
+          description: Comment id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    post:
+      tags:
+        - Comment
+      summary: Creates a new instance in posts of this model.
+      operationId: Comment.prototype.__create__posts
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Post'
+        - name: id
+          in: path
+          description: Comment id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    put:
+      tags:
+        - Comment
+      summary: Update posts of this model.
+      operationId: Comment.prototype.__update__posts
+      parameters:
+        - name: data
+          in: body
+          required: false
+          schema:
+            $ref: '#/definitions/Post'
+        - name: id
+          in: path
+          description: Comment id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Post'
+      deprecated: false
+    delete:
+      tags:
+        - Comment
+      summary: Deletes posts of this model.
+      operationId: Comment.prototype.__destroy__posts
+      parameters:
+        - name: id
+          in: path
+          description: Comment id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '204':
+          description: Request was successful
+      deprecated: false
+  /Comments:
+    post:
+      tags:
+        - Comment
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: Comment.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Comment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+    put:
+      tags:
+        - Comment
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Comment.upsert__put_Comments
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Comment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+    patch:
+      tags:
+        - Comment
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: Comment.upsert__patch_Comments
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Comment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+    get:
+      tags:
+        - Comment
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: Comment.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Comment'
+      deprecated: false
+  /Comments/replaceOrCreate:
+    post:
+      tags:
+        - Comment
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: Comment.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Comment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+  /Comments/upsertWithWhere:
+    post:
+      tags:
+        - Comment
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: Comment.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Comment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+  '/Comments/{id}/exists':
+    get:
+      tags:
+        - Comment
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Comment.exists__get_Comments_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/Comments/{id}':
+    head:
+      tags:
+        - Comment
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'Comment.exists__head_Comments_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - Comment
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: Comment.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+    delete:
+      tags:
+        - Comment
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: Comment.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - Comment
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'Comment.prototype.updateAttributes__put_Comments_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Comment'
+        - name: id
+          in: path
+          description: Comment id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+    patch:
+      tags:
+        - Comment
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'Comment.prototype.updateAttributes__patch_Comments_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Comment'
+        - name: id
+          in: path
+          description: Comment id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+  '/Comments/{id}/replace':
+    post:
+      tags:
+        - Comment
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: Comment.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/Comment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+  /Comments/findOne:
+    get:
+      tags:
+        - Comment
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: Comment.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/Comment'
+      deprecated: false
+  /Comments/update:
+    post:
+      tags:
+        - Comment
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: Comment.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/Comment'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /Comments/count:
+    get:
+      tags:
+        - Comment
+      summary: Count instances of the model matched by where from the data source.
+      operationId: Comment.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+definitions:
+  x-any:
+    properties: {}
+  Comment:
+    properties:
+      id:
+        description: Unique identifier
+        type: number
+        format: double
+      name:
+        description: Name of the comment
+        type: string
+      email:
+        description: Email address of the commenter
+        type: string
+      body:
+        description: The comment
+        type: string
+      submitted_dt:
+        description: Date/Time the comment was submitted
+        type: string
+        format: date-time
+      where:
+        description: Coordinates where the comment was sent from
+        $ref: '#/definitions/GeoPoint'
+    required:
+      - name
+      - email
+      - body
+    additionalProperties: false
+  PostComment:
+    properties:
+      id:
+        type: number
+        format: double
+      postId:
+        type: number
+        format: double
+      commentId:
+        type: number
+        format: double
+    additionalProperties: false
+  Post:
+    properties:
+      id:
+        description: Unique identifier
+        type: number
+        format: double
+      title:
+        description: Title of the post
+        type: string
+      body:
+        description: Body of the post
+        type: string
+      submitted_dt:
+        description: Date/Time the post was submitted
+        type: string
+        format: date-time
+      where:
+        description: Coordinates where the comment was sent from
+        $ref: '#/definitions/GeoPoint'
+    required:
+      - title
+      - body
+    additionalProperties: false
+  GeoPoint:
+    properties:
+      lat:
+        type: number
+      lng:
+        type: number
+basePath: /api
+swagger: '2.0'
+info:
+  x-ibm-name: loopbackstarter
+  version: 1.0.0
+  title: LoopBackStarter
+schemes:
+  - https
+host: $(catalog.host)
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)

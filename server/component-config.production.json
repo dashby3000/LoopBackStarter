@@ -1,0 +1,10 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer",
+    "uiDirs": "server/explorer",
+    "apiInfo": {
+      "title": "{'welcome': 'LoopBack Starter API', 'node_env': 'production'}",
+      "description": "LoopBack Starter API"
+    }
+  }
+}

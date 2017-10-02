@@ -1,0 +1,52 @@
+{
+  "name": "Comment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": true,
+      "description": ["Unique identifier"]
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "description": ["Name of the comment"]
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "description": ["Email address of the commenter"]
+    },
+    "body": {
+      "type": "string",
+      "required": true,
+      "description": ["The comment"]
+    },
+    "submitted_dt": {
+      "type": "date",
+      "required": false,
+      "defaultFn": "$now",
+      "description": ["Date/Time the comment was submitted"]
+    },
+    "where": {
+      "type": "geopoint",
+      "required": false,
+      "description": ["Coordinates where the comment was sent from"]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "posts": {
+      "type": "hasOne",
+      "model": "Post",
+      "foreignKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

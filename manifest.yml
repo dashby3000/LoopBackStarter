@@ -1,0 +1,14 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: LoopBackStarterAPI
+  host: LoopBackStarterAPI
+  disk_quota: 1024M
+  env:
+    NODE_ENV: production
+    BASIC_AUTH: true
+    BASIC_AUTH_USER: demo
+    BASIC_AUTH_PASS: L00pB@ck
+    GW_SECRET_HEADER: SuperSecretHeader

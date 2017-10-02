@@ -1,0 +1,146 @@
+<!--
+Copyright (c) IBM Corp. 2013,2017. All Rights Reserved.
+This project is licensed under the MIT License, full text below.
+
+Author: Dennis W. Ashby, dennis.ashby@us.ibm.com
+--------
+
+MIT license
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+  <style>
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    html {
+      width:100%;
+      height:100%;
+      /*background:url(./images/logo.png) center center no-repeat;*/
+      background-color: #4465b2;
+    }
+
+    div#privacy {
+      font-family: "American Typewriter";
+      font-size: smaller;
+      float: right;
+      color: white;
+      font-weight: 100;
+    }
+
+    div#footer {
+      position:fixed;
+      left:0px;
+      bottom:0px;
+      height:30px;
+      width:100%;
+      background:#999;
+      text-align: center;
+      font-family: "American Typewriter";
+      font-size: larger;
+      padding-top: 10px;
+      z-index: 100;
+    }
+    div#wrapper {
+      text-align: center;
+      font-family: "American Typewriter";
+      font-size: 100px;
+      color: white;
+    }
+
+    div#title {
+      font-size: 100px;
+      padding-top: 150px;
+    }
+
+    div#container {
+
+    }
+
+    div#api {
+      font-size: 18px;
+      display: inline;
+      font-weight: 200;
+    }
+
+    div#swagger {
+      font-size: 18px;
+      display: inline;
+      font-weight: 200;
+    }
+
+    div#github {
+      font-size: 18px;
+      display: inline;
+      font-weight: 200;
+    }
+
+    div#appmetrics {
+      font-size: 18px;
+      display: inline;
+      font-weight: 200;
+    }
+
+    div#api img {
+      width: 37px;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+
+    div#swagger img {
+      width: 37px;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+
+    div#github img {
+      width: 37px;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+
+    div#appmetrics img {
+      width: 33px;
+      vertical-align: middle;
+      margin-right: 7px;
+    }
+  </style>
+  <title>LoopBack Starter API</title>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="title">LoopBack Starter API</div>
+    <div id="container">
+      <div id="api"><img class="api" src="images/api.png" /><a href="/explorer" target="explorer">Explorer</a></div>
+      <div id="appmetrics"><img class="appmetrics" src="images/nodejs-logo.png" /><a href="/appmetrics-dash" target="appmetrics">AppMetrics</a></div>
+      <div id="github"><img class="github" src="images/octocat.png" /><a href="https://github.com/dashby3000/LoopBackStarter" target="github">Source Code</a></div>
+      <div id="swagger"><img class="swagger" src="images/swagger-logo.png" /><a href="../definitions/LoopBackStarter.yaml" target="api-swagger">Swagger</a></div>
+    </div>
+  </div>
+  <div id="footer">Dennis Ashby, WW Technical Sales Executive - Hybrid Integration, <a style="color: black;" href="mailto:dennis.ashby@us.ibm.com" target="_top">dennis.ashby {at} us.ibm.com</a></div>
+</body>
+</html>

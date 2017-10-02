@@ -1,0 +1,47 @@
+{
+  "name": "Post",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": true,
+      "description": ["Unique identifier"]
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": ["Title of the post"]
+    },
+    "body": {
+      "type": "string",
+      "required": true,
+      "description": ["Body of the post"]
+    },
+    "submitted_dt": {
+      "type": "date",
+      "required": false,
+      "defaultFn": "$now",
+      "description": ["Date/Time the post was submitted"]
+    },
+    "where": {
+      "type": "geopoint",
+      "required": false,
+      "description": ["Coordinates where the comment was sent from"]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "comments": {
+      "type": "hasAndBelongsToMany",
+      "model": "Comment",
+      "foreignKey": "id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

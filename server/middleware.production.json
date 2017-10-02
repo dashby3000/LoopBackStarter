@@ -1,0 +1,23 @@
+{
+  "initial": {
+    "./middleware/secret-header": {
+      "enabled": true
+    },
+    "./middleware/tracker": {
+      "enabled": true
+    }
+  },
+  "auth": {
+    "./middleware/basic-auth": {
+      "enabled": false
+    }
+  },
+  "final:after": {
+    "strong-error-handler": {
+      "params": {
+        "debug": false,
+        "log": false
+      }
+    }
+  }
+}

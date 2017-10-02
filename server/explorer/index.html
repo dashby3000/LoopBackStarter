@@ -1,0 +1,85 @@
+<!--
+Copyright (c) IBM Corp. 2013,2017. All Rights Reserved.
+This project is licensed under the MIT License, full text below.
+
+Author: Dennis W. Ashby, dennis.ashby@us.ibm.com
+--------
+
+MIT license
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>YoWhatsThat API Explorer</title>
+  <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16" />
+  <link href='css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/loopbackStyles.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='css/print.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='css/loopbackStyles.css' media='print' rel='stylesheet' type='text/css'/>
+  <script src='lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.slideto.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.wiggle.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+  <script src='lib/handlebars-4.0.5.js' type='text/javascript'></script>
+  <script src='lib/lodash.min.js' type='text/javascript'></script>
+  <script src='lib/backbone-min.js' type='text/javascript'></script>
+  <script src='swagger-ui.js' type='text/javascript'></script>
+  <script src='lib/highlight.9.1.0.pack.js' type='text/javascript'></script>
+  <script src='lib/jsoneditor.min.js' type='text/javascript'></script>
+  <script src='lib/marked.js' type='text/javascript'></script>
+
+  <!-- enabling this will enable oauth2 implicit scope support -->
+  <script src='lib/swagger-oauth.js' type='text/javascript'></script>
+
+  <!-- Init swagger UI. -->
+  <script src='lib/loadSwaggerUI.js' type="text/javascript"></script>
+</head>
+
+<body class="swagger-section standalone">
+<div id='header'>
+    <div class="swagger-ui-wrap">
+        <a id="logo"> <img src="./images/loopback-hero.png" style="width: 35px; height: 35px; vertical-align: middle;"> LoopBack Starter API</a>
+        <form id='api_selector'>
+            <div class='input'>
+                <span class='accessTokenDisplay'>Secret Not Set</span>
+                <input placeholder="Secret Token" id="input_accessToken" name="accessToken" type="text"/>
+            </div>
+            <div class='input'><a id="explore" type="submit">Set Secret Token</a></div>
+        </form>
+    </div>
+</div>
+
+<div class="contentWell">
+    <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+    <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+</div>
+<div id="footer">Dennis Ashby, WW Technical Sales Executive - Hybrid Integration, <a style="color: black;" href="mailto:dennis.ashby@us.ibm.com" target="_top">dennis.ashby {at} us.ibm.com</a></div>
+</body>
+</html>
