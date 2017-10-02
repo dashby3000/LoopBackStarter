@@ -1,6 +1,9 @@
 Copyright (c) IBM Corp. 2013,2017. All Rights Reserved.
+
 Node application: LoopBack Starter
+
 Author: Dennis W. Ashby, dennis.ashby@us.ibm.com
+
 This project is licensed under the MIT License, full text below.
 
 --------
